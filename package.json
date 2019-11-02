@@ -1,0 +1,27 @@
+{
+  "name": "a-plan",
+  "version": "0.0.1",
+  "description": "jessie打怪升级之路",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com:jessie975/blog.git"
+  },
+  "keywords": [
+    "fe"
+  ],
+  "author": "jessie",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jessie975/blog/issues"
+  },
+  "devDependencies": {
+    "eslint": "^6.6.0",
+    "jest": "^24.9.0",
+    "vuepress": "^1.2.0",
+    "vuepress-theme-reco": "^1.1.0"
+  }
+}

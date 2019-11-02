@@ -1,0 +1,3 @@
+node_modules/
+docs/.vuepress/themeConfig/valineConfig.local.js
+docs/.vuepress/dist
