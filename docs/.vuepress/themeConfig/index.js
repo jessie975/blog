@@ -4,6 +4,7 @@ const nav = require('./nav.js')
 module.exports = {
   GAID: '',
   sidebar: 'auto',
+  sidebarDepth: 1,
   type: 'blog',
   noFoundPageByTencent: false,
   sidebarDepth: 1,
