@@ -3,7 +3,7 @@ title: 排序算法学习
 date: 2019-10-15 14:40:20
 sidebar: 'auto'
 categories: 
- - 学习总结
+ - 算法
 tags: 
  - 算法
 publish: true
