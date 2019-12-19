@@ -1,7 +1,7 @@
 --- 
-title: 微信小程序实战之封装wx.request
+title: 微信小程序实战(1)————封装wx.request
 date: 2019-12-11 10:22:57
-sidebar: true
+sidebar: 'auto'
 categories: 
  - 实战
 tags: 

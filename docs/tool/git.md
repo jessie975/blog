@@ -1,7 +1,7 @@
 --- 
 title: git分支可视化理解
 date: 2019-11-27 15:36:07
-sidebar: true
+sidebar: 'auto'
 categories: 
  - 工具
 tags: 
