@@ -3,7 +3,7 @@ title: vue渲染大量数据的优化方案
 date: 2019-10-27 18:20:20
 sidebar: 'auto'
 categories: 
- - 性能优化
+ - 前端那些小事儿
 tags: 
  - 性能优化
 publish: true

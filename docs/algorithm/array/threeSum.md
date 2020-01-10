@@ -3,7 +3,7 @@ title: 三数之和
 date: 2019-10-20 18:37:26
 sidebar: 'auto'
 categories: 
- - lettcode
+ - leetcode
 tags: 
  - 算法
 publish: true

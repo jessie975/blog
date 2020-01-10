@@ -3,7 +3,7 @@ title: 学正则不用栗子怎么行
 date: 2019-10-30 17:50:20
 sidebar: 'auto'
 categories: 
- - JS基础
+ - 前端那些小事儿
 tags: 
  - 正则
 publish: true

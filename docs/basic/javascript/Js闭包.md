@@ -3,7 +3,7 @@ title: js闭包
 date: 2019-07-17 12:39:15
 sidebar: 'auto'
 categories: 
- - JS基础
+ - 前端那些小事儿
 tags: 
  - JavaScript
 publish: true
