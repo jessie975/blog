@@ -3,7 +3,7 @@ title: 设计模式学习
 date: 2019-11-01 14:36:10
 sidebar: 'auto'
 categories: 
- - 前端那些小事儿
+ - 前端那些事儿
 tags: 
  - 设计模式
 publish: true

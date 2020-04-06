@@ -3,7 +3,7 @@ title: 深度优先遍历和广度优先遍历
 date: 2019-11-14 16:39:09
 sidebar: 'auto'
 categories: 
- - 前端那些小事儿
+ - 前端那些事儿
 tags: 
  - 算法
 publish: true
