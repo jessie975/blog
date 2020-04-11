@@ -1,100 +1,49 @@
-/**
- * 1
- */
-
-const origin = 'ATATAA'
-const target = 'TTAATT'
-
-const findIndex = (origin, target) => {
-  const oArr = origin.split('')
-  const tArr = target.split('')
-  const indexArr = []
-  for (let i = 0; i < oArr.length; i++) {
-    if (oArr[i] !== tArr[i]) {
-      indexArr.push(i)
+const a = [1, 3, 5, 7]
+const b = [2, 4, 6, 8, 9, 10]
+const merge = (a, b) => {
+  const result = []
+  while (a.length && b.length) {
+    if (a[0] <= b[0]) {
+      result.push(a.shift())
+    } else {
+      result.push(b.shift())
     }
   }
-  return indexArr
-}
-
-const getReault = (origin, target) => {
-  const indexArr = findIndex(origin, target)
-  if (indexArr.length % 2 === 0) {
-    return indexArr.length / 2
-  } else {
-    return Math.floor(indexArr.length / 2 + 1)
+  // 如果还有没有比较的就直接放入数组后面
+  while (a.length) {
+    result.push(a.shift())
   }
-}
-
-// getReault(origin, target)
-
-/**
- * 2
- */
-const yes = 2
-const no = 3
-
-/**
- * 获取可抽取次数
- * @param {Number} sum 总票数
- */
-const getTimes = (sum) => {
-  if (sum < 0) return 0
-  if (sum < 3) return 1
-  return sum % 3 === 0 ? sum / 3 : Math.floor(sum / 3 + 1)
-}
-
-/**
- * 排列组合函数
- * @param {Array} keys 需要排列组合的数组
- */
-
-const GetDataList = (keys, currentIndex = 0, choseArr = [], result = []) => {
-  const mLen = keys.length
-  // 可选数量小于项所需元素的个数，则递归终止
-  if (currentIndex + mLen > mLen) {
-    return
-  }
-  for (let i = currentIndex; i < mLen; i++) {
-    // n === 1的时候，说明choseArr在添加一个元素，就能生成一个新的完整项了。
-    // debugger
-    if (mLen === 1) {
-      // 再增加一个元素就能生成一个完整项，再加入到结果集合中
-      result.push([...choseArr, keys[i]])
-      // 继续下一个元素生成一个新的完整项
-      i + 1 < mLen && GetDataList(keys, i + 1, choseArr, result)
-      break
-    }
-    // 执行到这，说明n > 2，choseArr还需要两个以上的元素，才能生成一个新的完整项。则递归，往choseArr添加元素
-    GetDataList(keys, i + 1, [...choseArr, keys[i]], result)
+  while (b.length) {
+    result.push(b.shift())
   }
   return result
 }
+// console.log(merge(a, b))
 
-/**
- * 获取中奖与不中奖可能组成的数组，1代表中奖，0代表未中奖
- * @param {Number} yes 中奖
- * @param {Number} no 不中奖
- */
-const getArray = (yes, no) => {
-  const yesArr = Array.from({ length: yes }).fill(1)
-  const noArr = Array.from({ length: no }).fill(0)
-  const tempArr = [...yesArr, ...noArr]
-  return GetDataList(tempArr)
+const merge1 = (a, b) => {
+  let i = a.length - 1 // a数组的最后一个元素
+  let j = b.length - 1 // b数组的最后一个元素
+  let sum = i + j + 1 // 两个数组的总长度
+  while (i >= 0 && j >= 0) {
+    if (a[i] > b[j]) {
+      a[sum] = a[i]
+      i -= 1
+    } else {
+      a[sum] = b[j]
+      j -= 1
+    }
+    sum -= 1
+  }
+  return a
 }
-
-// console.log(getArray(yes, no))
-
-const quickSort = (arr) => {
-  if (arr.length < 1) return arr
-  const midValue = arr.splice(Math.floor(arr.length / 2), 1)[0]
-  const left = []
-  const right = []
-  arr.forEach((item) => {
-    item > midValue ? right.push(item) : left.push(item)
-  })
-  return [...quickSort(left), midValue, ...quickSort(right)]
+// console.log(merge1(a, b))
+const mergeSort = (array) => {
+  if (array.length < 2) return array
+  const midleIndex = Math.floor(array.length / 2)
+  const left = array.slice(0, midleIndex)
+  const right = array.slice(midleIndex)
+  return merge(mergeSort(left), mergeSort(right))
 }
-
-console.log(quickSort([2, 5, 4, 3, 1]))
+const arr = [2, 5, 1, 6, 9]
+console.log(mergeSort(arr))
 
