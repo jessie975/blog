@@ -47,3 +47,4 @@ const mergeSort = (array) => {
 const arr = [2, 5, 1, 6, 9]
 console.log(mergeSort(arr))
 
+
