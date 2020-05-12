@@ -49,7 +49,7 @@ const dp = (n) => {
   let b = 2
   let temp = 0
 
-  for(let i = 0; i < n; i++) {
+  for(let i = 2; i < n; i++) {
     temp = a + b
     a = b
     b = temp
@@ -59,6 +59,27 @@ const dp = (n) => {
 ```
 
 这样时间复杂度为O(n),空间复杂度为O(1)，效率得到了提升。
+
+> 更新：得到一位前辈的指导，还可以尝试缓存的写法，接下来实现一下吧
+
+```js
+// 使用缓存的思路：首先创建一个缓存容器，在计算时先去检索缓存容器中有没有对应的值，有的话直接取出来用，没有的话就先计算，然后将结果放进缓存容器，方便下次复用
+
+const cache = {}
+const dp = (n) => {
+  if (n < 1) return 0
+  if (n === 1) return 1
+  if (n === 2) return 2
+
+  if(cache[n]) {
+      return cache[n]
+  } else {
+      const result = dp(n - 1) + dp(n - 2);
+      cache[n] = result
+      return result
+  }
+}
+```
 
 ### 实战
 

@@ -229,4 +229,4 @@ console.log(a === b);    //true
 
 关于这部分的内容可以参考之前写的一篇文章：[手写题](http://jessie.i7xy.cn/interviewQuestions/write.html#call)
 
-## 原型/继承
+## 原型链/继承
