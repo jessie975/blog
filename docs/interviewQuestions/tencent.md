@@ -3,7 +3,7 @@ title: 面壁思过系列之鹅厂面经
 date: 2020-03-28 20:17:23
 sidebar: 'auto'
 categories: 
- - 面试题
+ - 面试
 tags: 
  - 面试
 publish: true

@@ -3,7 +3,7 @@ title: 常见手写题（call、apply、bind、new、instanceof内部实现）
 date: 2020-01-10 13:51:00
 sidebar: 'auto'
 categories: 
- - 面试题
+ - 面试
 tags: 
  - 面试
 publish: true

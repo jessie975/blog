@@ -5,7 +5,7 @@ sidebar: 'auto'
 categories: 
  - 前端那些事儿
 tags: 
- - JavaScript
+ - 基础
 publish: true
 ---
 ## 什么是闭包

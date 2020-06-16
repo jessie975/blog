@@ -7,7 +7,6 @@ module.exports = {
   sidebarDepth: 1,
   type: 'blog',
   noFoundPageByTencent: false,
-  sidebarDepth: 1,
   author: 'jessie',
   logo: '',
   nav,
