@@ -9,7 +9,7 @@ tags:
 publish: true
 ---
 
-之前对于设计模式的学习一直处于功利的心态，觉得这种东西只要别人问起来的时候自己略知一二就可以了，所以之前虽然对于设计模式也做过不少『记录』，但都只是知道，并没有深入理解，所以最近买了一本《JavaScript设计模式与开发实践》来学习，所谓好记性不如烂笔头嘛，这里就写一篇博客来做一些学习笔记
+之前对于设计模式的学习一直处于功利的心态，觉得这种东西只要别人问起来的时候自己略知一二就可以了，所以之前虽然对于设计模式也做过不少『记录』，但都只是知道，并没有深入理解，所以最近买了一本《JavaScript设计模式与开发实践》来学习，看过之后对有些代码的理解有了茅塞顿开的感觉，故通过笔记记录下书中一些知识以及自己对这些知识的理解。
 
 ## 关于设计模式
 
@@ -82,3 +82,165 @@ f() // 3
 ```
 
 根据我们刚才的推论，变量a应该在调用后就被销毁了，但是接下来还是能访问到a。这是因为当执行了const f = func()，f返回了一个匿名函数的引用，它可以访问到func()被调用时产生的环境，而局部变量a一直处在这个环境中。既然局部变量所在的环境还能被外界访问，这个局部变量就有了不被销毁的理由。这里就产生了一个闭包结构，局部变量的生存周期被延续了。因此，闭包也常用于**延续变量的生存周期**以及**封装变量**
+
+### 高阶函数
+
+高阶函数是指至少满足下列条件之一的函数：
+
+- 函数可以作为参数被传递
+- 函数可以作为返回值输出
+
+所以我们的回调函数和函数柯里化的应用都属于高阶函数，回调函数就不必介绍了，再次说说函数柯里化（function currying）吧。
+
+#### 函数柯里化
+
+currying又称部分求值。一个currying的函数首先会接受一些函数，接受了这些函数之后，该函数并不会立即求值，而是继续返回另一个函数，**刚才传入的参数在函数形成的闭包中被保护起来**，待到函数真正需要求值的时候，之前传入的所有参数都会被一次性用于求值
+
+记下书中的一个例子便于今后理解
+
+```js
+const currying = function(fn) {
+  const args = []
+  return function() {
+    if (arguments.length === 0) {
+      return fn.apply(this, args)
+    } else {
+      [].push.apply(args, arguments)
+      return arguments.callee   // callee 属性包含当前正在执行的函数，也就是匿名函数的一种递归调用方式，但是ES5已经禁止使用了
+    }
+  }
+}
+
+const const = (function() {
+  let money = 0
+  return function() {
+    for (let i = 0, l = arguments.length; i < l; i++) {
+      money += arguments[i]
+    }
+    return money
+  }
+})()
+
+const cost = currying(const) // 换转成currying函数
+
+cost(100) // 未真正求值
+cost(200) // 未真正求值
+cost(300) // 未真正求值
+
+alert(cost()) // 求值并输出： 600
+
+```
+
+接下来就进入正题吧，这篇读书笔记只挑选了平时常用的几种模式进行总结记录
+
+- 单例模式
+- 策略模式
+- 代理模式
+- 发布-订阅模式
+- 命令模式
+- 中介者模式
+- 装饰者模式
+- 适配器模式
+
+## 单例模式
+
+> 定义：有且仅有一个对象的实例。JS的单例模式有别于传统面向对象语言的单例模式，js作为一门无类的语言。使用全局变量的模式来实现单例模式思想。
+> 适用场景：单点登录
+
+```js
+var getSingle = function (fn) {
+  var result;
+  return function () {
+    return result || (result = fn.apply(this, arguments));
+  }
+};
+```
+
+## 策略模式
+
+> 定义： 定义一系列的算法，把它们一个个的封装起来，并且使他们可以相互替换
+
+自从学习这个模式之后，我就再也看不惯代码里大量的『if else』了，举一个我遇到的策略模式最简单的例子：
+
+我同事写的代码是这样的：
+
+```js
+if(cityStr == "gy"){
+  app.globalData.dsdata="贵阳";
+  app.globalData.cityStr = "gy";
+}else if(cityStr=="zy"){
+  app.globalData.dsdata="遵义";
+  app.globalData.cityStr = "zy";
+}else if(cityStr=="as"){
+  app.globalData.dsdata="安顺";
+  app.globalData.cityStr = "as";
+}else if(cityStr=="bj"){
+  app.globalData.dsdata="毕节";
+  app.globalData.cityStr = "bj";
+}else if(cityStr=="tr"){
+  app.globalData.dsdata="铜仁";
+  app.globalData.cityStr = "tr";
+}else if(cityStr=="lps"){
+  app.globalData.dsdata="六盘水";
+  app.globalData.cityStr = "lps";
+}else if(cityStr=="qn"){
+  app.globalData.dsdata="黔南";
+  app.globalData.cityStr = "qn";
+}else if(cityStr=="qxn"){
+  app.globalData.dsdata="黔西南";
+  app.globalData.cityStr = "qxn";
+}else if(cityStr=="qdn"){
+  app.globalData.dsdata="黔东南";
+  app.globalData.cityStr = "qdn";
+}else{
+  app.globalData.dsdata="省级";
+  app.globalData.cityStr = "gz";
+}
+```
+
+我学习了策略模式之后写的代码：（同样的功能）
+
+```js
+const cityMap = {
+  gy: '贵阳',
+  zy: '遵义',
+  as: '安顺',
+  bj: '毕节',
+  tr: '铜仁',
+  lps: '六盘水',
+  qn: '黔南',
+  qxn: '黔西南',
+  qdn: '黔东南'
+}
+app.globalData.city = cityMap[city] || '省级'
+```
+
+是不是简洁很多呢，这就是学习设计模式的魅力，可以写出让别人说出『原来还可以这样写』的代码，这种感觉会上瘾。
+
+## 代理模式
+
+> 定义：为一个对象提供一个代用品或占位符，以便控制对他的访问。代理模式的关键是：当客户不方便直接访问一个对象或者不满足需要的时候，提供一个替身对象来控制对这个对象的访问
+
+## 发布-订阅模式
+
+> 定义：又叫观察者模式，它定义对象间的一种一对多的依赖关系，当一个对象的状态发生改变时，所有依赖于它的对象都将得到通知。vue中状态管理也就使用了这种模式。
+
+## 命令模式
+
+> 定义：命令模式中的命令指的是一个执行某些特定事情的指令。
+> 适用场景：有时候需要向某些对象发送请求，但是并不知道请求的接收者是谁，也不知道被请求的操作是什么，此时希望用一种松耦合的方式来设计程序，使得请求发送者和请求接收者能够消除彼此之间的耦合关系。
+
+## 中介者模式
+
+> 定义：中介者模式的作用就是解决对象与对象之间的紧耦合关系。
+
+## 装饰者模式
+
+> 定义：对对象动态的添加职责。这个模式有点像js的继承，但是装饰者模式更灵活更轻便，它是一种『即用即付』的方式，比如天冷了就加衣服......
+
+## 适配器模式
+
+> 定义：适配器模式的作用是解决两个软件实体间的接口不兼容的问题。
+> 适用场景：当我们试图调用模块或者对象的某个接口时，却发现这个接口的格式并不符合目前的需求。这时候有两种解决办法：①修改原来的接口实现，但如果原来的模块很复杂，或者我们拿到的模块是一段别人编写的经过压缩的代码，修改原接口就显得不太现实了。②创建一个适配器，将原来的接口转换成客户希望的另一个接口，客户只需要和适配器打交道。
+
+先暂时写到这里，最近工作比较忙，等闲下来再补充以上模式的代码实例......
