@@ -25,7 +25,7 @@ item2最初的样子并不怎么好看，接下来我们就用oh-my-zsh来美化
 
 首先你可以先试一下这个命令:  
 
-```
+```js
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
