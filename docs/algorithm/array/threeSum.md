@@ -1,6 +1,6 @@
 --- 
 title: 三数之和
-date: 2019-10-20 18:37:26
+date: 2019/10/20
 sidebar: 'auto'
 categories: 
  - 算法

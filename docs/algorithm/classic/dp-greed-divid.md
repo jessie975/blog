@@ -1,6 +1,6 @@
 --- 
 title: offer攻坚战——算法篇（动态规划/贪心算法/分治算法）
-date: 2020-04-08 15:48:44
+date: 2020/04/08
 sidebar: 'auto'
 categories: 
  - 算法

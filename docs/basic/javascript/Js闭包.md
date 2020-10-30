@@ -1,6 +1,6 @@
 --- 
 title: js闭包
-date: 2019-07-17 12:39:15
+date: 2019/07/17
 sidebar: 'auto'
 categories: 
  - 前端那些事儿

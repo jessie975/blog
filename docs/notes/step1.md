@@ -1,6 +1,6 @@
 --- 
 title: 开启新征程———记2020上大半年的心路历程
-date: 2020-08-05 14:43:32
+date: 2020/08/05
 sidebar: 'auto'
 categories: 
  - 记录

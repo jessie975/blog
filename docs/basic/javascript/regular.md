@@ -1,6 +1,6 @@
 --- 
 title: 学正则不用栗子怎么行
-date: 2019-10-30 17:50:20
+date: 2019/10/30
 sidebar: 'auto'
 categories: 
  - 前端那些事儿

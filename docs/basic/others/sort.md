@@ -1,6 +1,6 @@
 --- 
 title: 排序算法学习
-date: 2019-10-15 14:40:20
+date: 2019/10/15
 sidebar: 'auto'
 categories: 
  - 前端那些事儿

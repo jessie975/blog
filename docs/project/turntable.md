@@ -1,6 +1,6 @@
 --- 
 title: 用canvas实现一个可配置的转盘组件（微信小程序）
-date: 2020-03-24 09:49:15
+date: 2020/03/24
 sidebar: 'auto'
 categories: 
  - 实战

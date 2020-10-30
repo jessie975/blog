@@ -1,6 +1,6 @@
 --- 
 title: 面壁思过系列之鹅厂面经
-date: 2020-03-28 20:17:23
+date: 2020/03/28
 sidebar: 'auto'
 categories: 
  - 面试

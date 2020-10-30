@@ -1,6 +1,6 @@
 --- 
 title: 移动端适配方案
-date: 2020-10-20 22:00:36
+date: 2020/10/20
 sidebar: 'auto'
 categories: 
  - 前端那些事儿

@@ -1,6 +1,6 @@
 --- 
 title: 常见手写题（call、apply、bind、new、instanceof内部实现）
-date: 2020-01-10 13:51:00
+date: 2020/01/10
 sidebar: 'auto'
 categories: 
  - 面试

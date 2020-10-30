@@ -1,6 +1,6 @@
 --- 
 title: 从输入URL到页面加载的过程
-date: 2019-10-29 10:37:26
+date: 2019/10/29
 sidebar: 'auto'
 categories: 
  - 面试

@@ -1,6 +1,6 @@
 --- 
 title: 《JavaScript设计模式》读书笔记
-date: 2020-08-21 09:33:13
+date: 2020/08/21
 sidebar: 'auto'
 categories: 
  - 读书笔记

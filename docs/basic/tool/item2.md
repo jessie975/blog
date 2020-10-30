@@ -1,6 +1,6 @@
 --- 
 title: item2 + oh-my-zsh 打造个性化终端
-date: 2020-04-21 10:54:11
+date: 2020/04/21
 sidebar: 'auto'
 categories: 
  - 前端那些事儿

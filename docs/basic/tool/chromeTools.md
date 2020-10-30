@@ -1,6 +1,6 @@
 --- 
 title: 开发者工具
-date: 2019-10-17 19:20:20
+date: 2019/10/17
 sidebar: 'auto'
 categories: 
  - 前端那些事儿

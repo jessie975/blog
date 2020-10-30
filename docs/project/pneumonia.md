@@ -1,6 +1,6 @@
 --- 
 title: 新型肺炎疫情动态检测——Demo
-date: 2020-02-10 14:19:07
+date: 2020/02/10
 sidebar: 'auto'
 categories: 
  - 实战
